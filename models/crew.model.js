@@ -4,6 +4,6 @@ const crewSchema = new mongoose.Schema({
 
 });
 
-const Crew = mongoose.Model('Crew',crewSchema);
+const Crew = mongoose.model('Crew',crewSchema);
 
 module.exports = Crew;

@@ -90,6 +90,6 @@ const showSchema = new mongoose.Schema({
   ],
 });
 
-const Show = mongoose.Model('Show',showSchema);
+const Show = mongoose.model('Show',showSchema);
 
 module.exports = Show;

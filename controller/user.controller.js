@@ -6,6 +6,7 @@ const sendMail = require("../utils/sendMail");
 //getting user details on creating account and sending token through email for email verification 
 const getCreateUser = async (req, res) => {
   try {
+
       const user = req.body;
       const token = jwt.sign(user,process.env.JWT_SECRET,{
           expiresIn:process.env.JWT_EXPIRES
@@ -53,15 +54,16 @@ const createUser = async (req, res) => {
     
     const user = jwt.decode(token);
 
-    const {firstName,lastName,email,password} = user;
+    const {firstName,lastName,email,password,role} = user;
 
 
-    const storedUser = await User.create({firstName,lastName,email,password});
+    const storedUser = await User.create({firstName,lastName,email,password,role});
+
     res.status(200).json({
       success:true,
       user:storedUser,
       token
-    })
+    });
 
   } catch (error) {
     res.status(400).json({

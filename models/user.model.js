@@ -24,7 +24,8 @@ const userSchema = new mongoose.Schema({
             values:["USER","ADMIN"],
             default:"USER",
             message:"{VALUE} role is not exist"
-        }
+        },
+        required:[true,"Please enter users role"]
     },
     email:{
         type:String,
